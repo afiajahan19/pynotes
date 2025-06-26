@@ -1,5 +1,5 @@
 ---
-title: Untitled
+title: Test 1
 date: 2025-06-26
 author: Your Name
 cell_count: 2
@@ -7,10 +7,10 @@ score: 0
 ---
 
 ```python
-print("hello")
+print("hola")
 ```
 
-    hello
+    hola
     
 
 
