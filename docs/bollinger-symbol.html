@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Bollinger-Symbol</title>
+
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://afiajahan19.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://afiajahan19.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://afiajahan19.github.io/pynotes/bollinger-symbol.html" rel="bookmark"
+        title="Permalink to Bollinger-Symbol">Bollinger-Symbol</a></h3>
+    </header>
+
+<h6 class="subheader" title="2025-06-27T00:00:00-04:00">Fri 27 June 2025
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="c1"># Import necessary libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Ensure plots show in notebook</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Define a function to calculate Bollinger Bands</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bollinger_bands</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_sd</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">rolling_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">rolling_std</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">rolling_std</span> <span class="o">*</span> <span class="n">num_sd</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">rolling_std</span> <span class="o">*</span> <span class="n">num_sd</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Plot the Bollinger Bands</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_bollinger</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Close Price&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bollinger Bands for </span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Complete function to show Bollinger Bands for a given stock symbol</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_bollinger_bands</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;1976-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2013-12-31&quot;</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_sd</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># Download historical stock data with adjusted prices</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">auto_adjust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Calculate Bollinger Bands</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bollinger_bands</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">num_sd</span><span class="o">=</span><span class="n">num_sd</span><span class="p">)</span>
+
+    <span class="c1"># Plot the result</span>
+    <span class="n">plot_bollinger</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: Show Bollinger Bands for Autodesk (ADSK)</span>
+<span class="n">show_bollinger_bands</span><span class="p">(</span><span class="s2">&quot;ADSK&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[*********************100%***********************]  1 of 1 completed
+</code></pre></div>
+
+<p><img alt="png" src="/pynotes/images/bollinger-symbol_4_1.png"></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">show_bollinger_bands</span><span class="p">(</span><span class="n">symbol</span><span class="p">):</span>
+
+    <span class="c1"># Step 1: Download data</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="s2">&quot;1976-01-01&quot;</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;2013-12-31&quot;</span>
+
+    <span class="c1"># Download historical data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+
+    <span class="c1"># Step 2: Define a function to calculate Bollinger Bands</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bollinger_bands</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num_sd</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">rolling_mean</span> <span class="o">=</span> <span class="n">price</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">rolling_std</span> <span class="o">=</span> <span class="n">price</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+        <span class="n">price</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">rolling_std</span> <span class="o">*</span> <span class="n">num_sd</span><span class="p">)</span>
+        <span class="n">price</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">rolling_std</span> <span class="o">*</span> <span class="n">num_sd</span><span class="p">)</span>
+        <span class="n">price</span><span class="p">[</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rolling_mean</span>
+
+        <span class="k">return</span> <span class="n">price</span>
+
+    <span class="c1"># Apply the function</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bollinger_bands</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Step 3: Plot the data with Bollinger Bands</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Close Price&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Moving Average&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lower Band&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Upper Band&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bollinger Bands for </span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">show_bollinger_bands</span><span class="p">(</span><span class="s2">&quot;ALLE&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_68908</span>\<span class="mf">3736596034.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="n">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">YF</span><span class="o">.</span><span class="n">download</span><span class="p">()</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">auto_adjust</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">True</span>
+<span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*********************</span><span class="mi">100</span><span class="o">%***********************</span><span class="p">]</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">completed</span>
+</code></pre></div>
+
+<p><img alt="png" src="/pynotes/images/bollinger-symbol_6_1.png"></p>
+<div class="highlight"><pre><span></span><code><span class="n">show_bollinger_bands</span><span class="p">(</span><span class="s2">&quot;AIZ&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_68908</span>\<span class="mf">3736596034.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="n">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">YF</span><span class="o">.</span><span class="n">download</span><span class="p">()</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">auto_adjust</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">True</span>
+<span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*********************</span><span class="mi">100</span><span class="o">%***********************</span><span class="p">]</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">completed</span>
+</code></pre></div>
+
+<p><img alt="png" src="/pynotes/images/bollinger-symbol_7_1.png"></p>
+<div class="highlight"><pre><span></span><code><span class="n">show_bollinger_bands</span><span class="p">(</span><span class="s2">&quot;ADSK&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_68908</span>\<span class="mf">3736596034.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="n">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">YF</span><span class="o">.</span><span class="n">download</span><span class="p">()</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">auto_adjust</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">True</span>
+<span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*********************</span><span class="mi">100</span><span class="o">%***********************</span><span class="p">]</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">completed</span>
+</code></pre></div>
+
+<p><img alt="png" src="/pynotes/images/bollinger-symbol_8_1.png"></p>
+<div class="highlight"><pre><span></span><code><span class="n">show_bollinger_bands</span><span class="p">(</span><span class="s2">&quot;AMZN&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span>\<span class="n">ipykernel_68908</span>\<span class="mf">3736596034.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="w"> </span><span class="n">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">YF</span><span class="o">.</span><span class="n">download</span><span class="p">()</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">auto_adjust</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">True</span>
+<span class="w">  </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+<span class="p">[</span><span class="o">*********************</span><span class="mi">100</span><span class="o">%***********************</span><span class="p">]</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">completed</span>
+</code></pre></div>
+
+<p><img alt="png" src="/pynotes/images/bollinger-symbol_9_1.png"></p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 10</strong></p>
+<p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://afiajahan19.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://afiajahan19.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
+            <li><a href="<linkedin handle>">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Afia Jahan</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

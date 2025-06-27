@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Fill-Random-Marks</title>
+
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://afiajahan19.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://afiajahan19.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://afiajahan19.github.io/pynotes/fill-random-marks.html" rel="bookmark"
+        title="Permalink to Fill-Random-Marks">Fill-Random-Marks</a></h3>
+    </header>
+
+<h6 class="subheader" title="2025-06-27T00:00:00-04:00">Fri 27 June 2025
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">datatype</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;Science&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Maths&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">)]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">current_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">datatype</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">current_index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Row &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">current_values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">current_index</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Science</th>
+      <th>Maths</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Row 1</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Row 2</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Row 3</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Science&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nx">Row</span><span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="mi">0</span>
+<span class="nx">Row</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="mi">0</span>
+<span class="nx">Row</span><span class="w"> </span><span class="mi">3</span><span class="w">    </span><span class="mi">0</span>
+<span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="nx">Science</span><span class="p">,</span><span class="w"> </span><span class="nx">dtype</span><span class="p">:</span><span class="w"> </span><span class="nx">int32</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Science&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">45</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span><span class="err">\</span><span class="n">AppData</span><span class="err">\</span><span class="k">Local</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">ipykernel_25452</span><span class="err">\</span><span class="mf">2542361963.</span><span class="nl">py</span><span class="p">:</span><span class="mi">1</span><span class="err">:</span><span class="w"> </span><span class="nl">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">Series</span><span class="p">.</span><span class="n">__setitem__</span><span class="w"> </span><span class="n">treating</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">positions</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">deprecated</span><span class="p">.</span><span class="w"> </span><span class="ow">In</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="k">integer</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="p">(</span><span class="n">consistent</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"> </span><span class="n">behavior</span><span class="p">).</span><span class="w"> </span><span class="k">To</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="err">`</span><span class="n">ser</span><span class="p">.</span><span class="n">iloc</span><span class="o">[</span><span class="n">pos</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="err">`</span>
+<span class="w">  </span><span class="n">df</span><span class="o">[</span><span class="n">&#39;Science&#39;</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">45</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Maths&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span><span class="err">\</span><span class="n">AppData</span><span class="err">\</span><span class="k">Local</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">ipykernel_25452</span><span class="err">\</span><span class="mf">981075704.</span><span class="nl">py</span><span class="p">:</span><span class="mi">1</span><span class="err">:</span><span class="w"> </span><span class="nl">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="nl">ChainedAssignmentError</span><span class="p">:</span><span class="w"> </span><span class="n">behaviour</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pandas</span><span class="w"> </span><span class="mf">3.0</span><span class="err">!</span>
+<span class="n">You</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">chained</span><span class="w"> </span><span class="n">assignment</span><span class="p">.</span><span class="w"> </span><span class="n">Currently</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">works</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">certain</span><span class="w"> </span><span class="n">cases</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Copy</span><span class="o">-</span><span class="k">on</span><span class="o">-</span><span class="k">Write</span><span class="w"> </span><span class="p">(</span><span class="n">which</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">become</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">behaviour</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">pandas</span><span class="w"> </span><span class="mf">3.0</span><span class="p">)</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">never</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">update</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">Series</span><span class="p">,</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">intermediate</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">behave</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="p">.</span>
+<span class="n">A</span><span class="w"> </span><span class="n">typical</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">,</span><span class="w"> </span><span class="ow">like</span><span class="err">:</span>
+
+<span class="n">df</span><span class="o">[</span><span class="n">&quot;col&quot;</span><span class="o">][</span><span class="n">row_indexer</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span>
+
+<span class="k">Use</span><span class="w"> </span><span class="err">`</span><span class="n">df</span><span class="p">.</span><span class="n">loc</span><span class="o">[</span><span class="n">row_indexer, &quot;col&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">values</span><span class="err">`</span><span class="w"> </span><span class="n">instead</span><span class="p">,</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">assignment</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">keeps</span><span class="w"> </span><span class="n">updating</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="err">`</span><span class="n">df</span><span class="err">`</span><span class="p">.</span>
+
+<span class="n">See</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">caveats</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nl">documentation</span><span class="p">:</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">pandas</span><span class="p">.</span><span class="n">pydata</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">pandas</span><span class="o">-</span><span class="n">docs</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">user_guide</span><span class="o">/</span><span class="n">indexing</span><span class="p">.</span><span class="n">html#returning</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="k">view</span><span class="o">-</span><span class="n">versus</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">copy</span>
+
+<span class="w">  </span><span class="n">df</span><span class="o">[</span><span class="n">&#39;Maths&#39;</span><span class="o">][</span><span class="n">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span><span class="err">\</span><span class="n">AppData</span><span class="err">\</span><span class="k">Local</span><span class="err">\</span><span class="n">Temp</span><span class="err">\</span><span class="n">ipykernel_25452</span><span class="err">\</span><span class="mf">981075704.</span><span class="nl">py</span><span class="p">:</span><span class="mi">1</span><span class="err">:</span><span class="w"> </span><span class="nl">FutureWarning</span><span class="p">:</span><span class="w"> </span><span class="n">Series</span><span class="p">.</span><span class="n">__setitem__</span><span class="w"> </span><span class="n">treating</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">positions</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">deprecated</span><span class="p">.</span><span class="w"> </span><span class="ow">In</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="k">integer</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">treated</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="p">(</span><span class="n">consistent</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">DataFrame</span><span class="w"> </span><span class="n">behavior</span><span class="p">).</span><span class="w"> </span><span class="k">To</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="err">`</span><span class="n">ser</span><span class="p">.</span><span class="n">iloc</span><span class="o">[</span><span class="n">pos</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="err">`</span>
+<span class="w">  </span><span class="n">df</span><span class="o">[</span><span class="n">&#39;Maths&#39;</span><span class="o">][</span><span class="n">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Science</th>
+      <th>Maths</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Row 1</th>
+      <td>45</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Row 2</th>
+      <td>0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Row 3</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>(3, 2)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 10</strong></p>
+<p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://afiajahan19.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://afiajahan19.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
+            <li><a href="<linkedin handle>">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Afia Jahan</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
