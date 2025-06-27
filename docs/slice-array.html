@@ -100,11 +100,146 @@ Reversed array (rows and columns):
  [3 2 1]]
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a list of numbers</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[10, 20, 30, 40, 50, 60, 70, 80, 90]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Check the type of &#39;a&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>list
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Get elements from index 4 to 7 (not including 8)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="c1"># Output: [50, 60, 70, 80]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[50, 60, 70, 80]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Get first 4 items</span>
+<span class="n">a</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<span class="c1"># Output: [10, 20, 30, 40]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[10, 20, 30, 40]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Get all elements from index 4 to the end</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+<span class="c1"># Output: [50, 60, 70, 80, 90]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[50, 60, 70, 80, 90]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Get a full copy of the list</span>
+<span class="n">a</span><span class="p">[:]</span>
+<span class="c1"># Output: [10, 20, 30, 40, 50, 60, 70, 80, 90]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[10, 20, 30, 40, 50, 60, 70, 80, 90]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Last item</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: 90</span>
+
+<span class="c1"># Second last item</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># Output: 80</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">80</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Last 2 items</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="c1"># Output: [80, 90]</span>
+
+<span class="c1"># Everything except last 2 items</span>
+<span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># Output: [10, 20, 30, 40, 50, 60, 70]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[10, 20, 30, 40, 50, 60, 70]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># All items reversed</span>
+<span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [90, 80, 70, 60, 50, 40, 30, 20, 10]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[90, 80, 70, 60, 50, 40, 30, 20, 10]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># First two items in reverse</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [20, 10]</span>
+
+<span class="c1"># First two items reversed with step -2</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># Output: [20]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[20]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the first three items reversed</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [30, 20, 10]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[30, 20, 10]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># All items reversed except last one</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [80, 70, 60, 50, 40, 30, 20, 10]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[80, 70, 60, 50, 40, 30, 20, 10]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove last 2 items and reverse the rest</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [70, 60, 50, 40, 30, 20, 10]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[70, 60, 50, 40, 30, 20, 10]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Last two items reversed</span>
+<span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [90, 80]</span>
+
+<span class="c1"># Last three items reversed</span>
+<span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [90, 80, 70]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[90, 80, 70]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Everything except the last 3 items, reversed</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Output: [60, 50, 40, 30, 20, 10]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[60, 50, 40, 30, 20, 10]
+</code></pre></div>
+
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 <hr>
-<p><strong>Score: 0</strong></p>
+<p><strong>Score: 15</strong></p>
 <p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
 
 </p>
