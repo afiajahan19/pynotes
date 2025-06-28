@@ -1,6 +1,6 @@
 ---
 title: Slice-Array
-date: 2025-06-27
+date: 2025-06-28
 author: Your Name
 cell_count: 17
 score: 15
