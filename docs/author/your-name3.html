@@ -47,6 +47,227 @@
 
 
             <article>
+                <a href="https://afiajahan19.github.io/pynotes/seabornflightdataanalysis.html"><h3 class="article-title">Seabornflightdataanalysis</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">flights</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;flights&quot;</span><span class="p">)</span>
+<span class="n">flights</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1949</td>
+      <td>Jan</td>
+      <td>112</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1949</td>
+      <td>Feb</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1949 …</td></tr></tbody></table></div><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/seabornflightdataanalysis.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://afiajahan19.github.io/pynotes/slice-array.html"><h3 class="article-title">Slice-Array</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Create a 2D array</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original Array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Slice a specific row</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">First row:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Slice a specific column</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Second column:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Slice a sub-matrix …</span></code></pre></div><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/slice-array.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://afiajahan19.github.io/pynotes/test.html"><h3 class="article-title">Test</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>hello
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/test.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://afiajahan19.github.io/pynotes/text-classification.html"><h3 class="article-title">Text-Classification</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gensim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4 …</span></code></pre></div><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/text-classification.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://afiajahan19.github.io/pynotes/triangle.html"><h3 class="article-title">Triangle</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">minimumTotal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">triangle</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">triangle</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span>
+                                      <span class="n">triangle</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">triangle</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Example triangle input</span>
+<span class="n">triangle</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">2 …</span></code></pre></div><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/triangle.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://afiajahan19.github.io/pynotes/untitled1.html"><h3 class="article-title">Untitled1</h3></a>
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">kaggle</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Collecting</span><span class="w"> </span><span class="n">kaggle</span>
+<span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">kaggle</span><span class="o">-</span><span class="mf">1.7</span><span class="o">.</span><span class="mf">4.5</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="o">.</span><span class="n">whl</span><span class="o">.</span><span class="n">metadata</span><span class="w"> </span><span class="p">(</span><span class="mi">16</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">bleach</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">afia</span><span class="w"> </span><span class="n">jahan</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">kaggle</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">6.2</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">certifi</span><span class="o">&gt;=</span><span class="mf">14.05</span><span class="o">.</span><span class="mi">14</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">afia</span><span class="w"> </span><span class="n">jahan …</span></code></pre></div><p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://afiajahan19.github.io/pynotes/untitled1.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
                 <a href="https://afiajahan19.github.io/pynotes/various-resources-titanic.html"><h3 class="article-title">Various-Resources-Titanic</h3></a>
 <h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
 </h6>

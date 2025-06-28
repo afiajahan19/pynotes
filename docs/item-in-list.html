@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Item-In-List</title>
+
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://afiajahan19.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://afiajahan19.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://afiajahan19.github.io/pynotes/item-in-list.html" rel="bookmark"
+        title="Permalink to Item-In-List">Item-In-List</a></h3>
+    </header>
+
+<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pyutil</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pyu</span>
+<span class="n">pyu</span><span class="o">.</span><span class="n">get_local_pyinfo</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">&#39;</span><span class="nx">conda</span><span class="w"> </span><span class="nx">env</span><span class="p">:</span><span class="w"> </span><span class="nx">C</span><span class="p">:</span><span class="err">\\</span><span class="nx">Users</span><span class="err">\\</span><span class="nx">Afia</span><span class="w"> </span><span class="nx">Jahan</span><span class="err">\\</span><span class="nx">anaconda3</span><span class="err">\\</span><span class="nx">envs</span><span class="err">\\</span><span class="nx">py312</span><span class="p">;</span><span class="w"> </span><span class="nx">pyv</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">3.12.11</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">packaged</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="nx">Anaconda</span><span class="p">,</span><span class="w"> </span><span class="nx">Inc</span><span class="p">.</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="nx">main</span><span class="p">,</span><span class="w"> </span><span class="nx">Jun</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">2025</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">53</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="nx">MSC</span><span class="w"> </span><span class="nx">v</span><span class="m m-Double">.1929</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="nx">bit</span><span class="w"> </span><span class="p">(</span><span class="nx">AMD64</span><span class="p">)]</span><span class="err">&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">pyu</span><span class="o">.</span><span class="n">ps2</span><span class="p">(</span><span class="s2">&quot;haystack-ai ollama-haystack python-dotenv&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">model_cache</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;test1.joblib&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span> <span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">cache_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model_cache</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">cache_keys</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[&#39;test1.joblib&#39;]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">joblib_path</span> <span class="o">=</span> <span class="s1">&#39;test1.joblib&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">joblib_path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache_keys</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>False
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">joblib_path</span> <span class="ow">in</span> <span class="n">cache_keys</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 5</strong></p>
+<p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://afiajahan19.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://afiajahan19.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
+            <li><a href="<linkedin handle>">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Afia Jahan</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

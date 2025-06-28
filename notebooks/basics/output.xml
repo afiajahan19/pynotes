@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<person>
+		<name>Alice</name>
+		<age>30</age>
+		<phones>123-4567</phones>
+		<phones>987-6543</phones>
+	</person>
+</root>
