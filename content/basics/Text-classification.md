@@ -1,6 +1,6 @@
 ---
 title: Text-Classification
-date: 2025-06-28
+date: 2025-06-29
 author: Your Name
 cell_count: 26
 score: 25

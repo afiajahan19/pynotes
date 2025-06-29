@@ -1,6 +1,6 @@
 ---
 title: Various-Resources-Titanic
-date: 2025-06-28
+date: 2025-06-29
 author: Your Name
 cell_count: 12
 score: 10

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Letter-Match</title>
+
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://afiajahan19.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://afiajahan19.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://afiajahan19.github.io/pynotes/letter-match.html" rel="bookmark"
+        title="Permalink to Letter-Match">Letter-Match</a></h3>
+    </header>
+
+<h6 class="subheader" title="2025-06-29T00:00:00-04:00">Sun 29 June 2025
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">contents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;AB23&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;A2B3&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;DE09&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MN90&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XYi9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XY90&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">:</span>
+    <span class="n">regex_pattern</span> <span class="o">=</span> <span class="s2">&quot;(?:AB|DE|XY)\d+&quot;</span> 
+    <span class="c1"># starts with AB or DE; should contain one or more number</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;matched : &#39;</span><span class="o">+</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">matched</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">AB23</span>
+<span class="n">matched</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">DE09</span>
+<span class="n">matched</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">XY90</span>
+
+
+<span class="o">&lt;&gt;:</span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">SyntaxWarning</span><span class="o">:</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="s1">&#39;\d&#39;</span>
+<span class="o">&lt;&gt;:</span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">SyntaxWarning</span><span class="o">:</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="s1">&#39;\d&#39;</span>
+<span class="n">C</span><span class="o">:\</span><span class="n">Users</span><span class="o">\</span><span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span><span class="o">\</span><span class="n">AppData</span><span class="o">\</span><span class="n">Local</span><span class="o">\</span><span class="n">Temp</span><span class="o">\</span><span class="n">ipykernel_75024</span><span class="o">\</span><span class="mi">3010093568</span><span class="o">.</span><span class="na">py</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">SyntaxWarning</span><span class="o">:</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="n">sequence</span><span class="w"> </span><span class="s1">&#39;\d&#39;</span>
+<span class="w">  </span><span class="n">regex_pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;(?:AB|DE|XY)\d+&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p>
+<p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://afiajahan19.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://afiajahan19.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/afia-jahan-16b611366/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Afia Jahan</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

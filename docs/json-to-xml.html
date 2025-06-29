@@ -48,57 +48,46 @@
         title="Permalink to Json-To-Xml">Json-To-Xml</a></h3>
     </header>
 
-<h6 class="subheader" title="2025-06-28T00:00:00-04:00">Sat 28 June 2025
+<h6 class="subheader" title="2025-06-29T00:00:00-04:00">Sun 29 June 2025
 </h6>
 
 
-    <div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xmltodict</span>
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">xmltodict</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">Collecting</span><span class="w"> </span><span class="n">xmltodict</span>
-<span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">xmltodict</span><span class="o">-</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="o">.</span><span class="n">whl</span><span class="o">.</span><span class="n">metadata</span><span class="w"> </span><span class="p">(</span><span class="mf">8.0</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
-<span class="n">Downloading</span><span class="w"> </span><span class="n">xmltodict</span><span class="o">-</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">2</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="o">.</span><span class="n">whl</span><span class="w"> </span><span class="p">(</span><span class="mf">10.0</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
-<span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">xmltodict</span>
-<span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">xmltodict</span><span class="o">-</span><span class="mf">0.14</span><span class="o">.</span><span class="mi">2</span>
-
-
-<span class="n">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">Ignoring</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="o">~</span><span class="n">umpy</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="p">)</span>
-<span class="n">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">Ignoring</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="o">~</span><span class="n">umpy</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="p">)</span>
-<span class="n">WARNING</span><span class="p">:</span><span class="w"> </span><span class="n">Ignoring</span><span class="w"> </span><span class="n">invalid</span><span class="w"> </span><span class="n">distribution</span><span class="w"> </span><span class="o">~</span><span class="n">umpy</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Afia</span><span class="w"> </span><span class="n">Jahan</span>\<span class="n">anaconda3</span>\<span class="n">envs</span>\<span class="n">py312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;person&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-        <span class="s2">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;123-4567&quot;</span><span class="p">,</span> <span class="s2">&quot;987-6543&quot;</span><span class="p">]</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">content</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;note&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;to&quot;</span> <span class="p">:</span> <span class="s2">&quot;Tove&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;from&quot;</span> <span class="p">:</span> <span class="s2">&quot;Jani&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;heading&quot;</span> <span class="p">:</span> <span class="s2">&quot;Reminder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;body&quot;</span> <span class="p">:</span> <span class="s2">&quot;Don&#39;t forget me this weekend!&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">xmltodict</span>
-
-<span class="c1"># Convert JSON (Python dict) to XML</span>
-<span class="n">xml_output</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">unparse</span><span class="p">({</span><span class="s2">&quot;root&quot;</span><span class="p">:</span> <span class="n">json_data</span><span class="p">},</span> <span class="n">pretty</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">xml_output</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">content</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;root&gt;</span>
-<span class="w">    </span><span class="nt">&lt;person&gt;</span>
-<span class="w">        </span><span class="nt">&lt;name&gt;</span>Alice<span class="nt">&lt;/name&gt;</span>
-<span class="w">        </span><span class="nt">&lt;age&gt;</span>30<span class="nt">&lt;/age&gt;</span>
-<span class="w">        </span><span class="nt">&lt;phones&gt;</span>123-4567<span class="nt">&lt;/phones&gt;</span>
-<span class="w">        </span><span class="nt">&lt;phones&gt;</span>987-6543<span class="nt">&lt;/phones&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/person&gt;</span>
-<span class="nt">&lt;/root&gt;</span>
+<div class="highlight"><pre><span></span><code>{&#39;note&#39;: {&#39;to&#39;: &#39;Tove&#39;,
+  &#39;from&#39;: &#39;Jani&#39;,
+  &#39;heading&#39;: &#39;Reminder&#39;,
+  &#39;body&#39;: &quot;Don&#39;t forget me this weekend!&quot;}}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">xml</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">pretty</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">xml</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;<span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>\n<span class="nt">&lt;note&gt;</span>\n\t<span class="nt">&lt;to&gt;</span>Tove<span class="nt">&lt;/to&gt;</span>\n\t<span class="nt">&lt;from&gt;</span>Jani<span class="nt">&lt;/from&gt;</span>\n\t<span class="nt">&lt;heading&gt;</span>Reminder<span class="nt">&lt;/heading&gt;</span>\n\t<span class="nt">&lt;body&gt;</span>Don\&#39;t<span class="w"> </span>forget<span class="w"> </span>me<span class="w"> </span>this<span class="w"> </span>weekend!<span class="nt">&lt;/body&gt;</span>\n<span class="nt">&lt;/note&gt;</span>&#39;
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 <hr>
-<p><strong>Score: 0</strong></p>
+<p><strong>Score: 5</strong></p>
 <p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
 
 </p>
@@ -130,7 +119,7 @@
         <h5 class="sidebar-title">Social</h5>
         <ul class="side-nav">
             <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
-            <li><a href="<linkedin handle>">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/afia-jahan-16b611366/">LinkedIn</a></li>
         </ul>
 
     </aside> <!-- End Sidebar -->

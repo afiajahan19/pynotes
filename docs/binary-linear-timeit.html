@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Binary-Linear-Timeit</title>
+
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://afiajahan19.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://afiajahan19.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://afiajahan19.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://afiajahan19.github.io/pynotes/binary-linear-timeit.html" rel="bookmark"
+        title="Permalink to Binary-Linear-Timeit">Binary-Linear-Timeit</a></h3>
+    </header>
+
+<h6 class="subheader" title="2025-06-29T00:00:00-04:00">Sun 29 June 2025
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">linear_search</span><span class="p">(</span><span class="n">lys</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>  
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lys</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">lys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="n">lys</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>  
+    <span class="n">first</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lys</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">first</span> <span class="o">&lt;=</span> <span class="n">last</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">first</span><span class="o">+</span><span class="n">last</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">lys</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">mid</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">val</span><span class="o">&lt;</span><span class="n">lys</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+                <span class="n">last</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">first</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">index</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">SETUP_CODE</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; </span>
+<span class="s1">from __main__ import linear_search, binary_search</span>
+<span class="s1">from random import randint&#39;&#39;&#39;</span>
+
+<span class="n">TEST_CODE</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; </span>
+<span class="s1">mylist = [x for x in range(10000)] </span>
+<span class="s1">find = randint(0, len(mylist)) </span>
+<span class="s1">linear_search(mylist, find) </span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1"># timeit.repeat statement </span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">setup</span> <span class="o">=</span> <span class="n">SETUP_CODE</span><span class="p">,</span> 
+                      <span class="n">stmt</span> <span class="o">=</span> <span class="n">TEST_CODE</span><span class="p">,</span> 
+                      <span class="n">repeat</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> 
+                      <span class="n">number</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span> 
+
+<span class="c1"># priniting minimum exec. time </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear search time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">times</span><span class="p">)))</span> 
+
+<span class="n">TEST_CODE</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; </span>
+<span class="s1">mylist = [x for x in range(10000)] </span>
+<span class="s1">find = randint(0, len(mylist)) </span>
+<span class="s1">binary_search(mylist, find) </span>
+<span class="s1">&#39;&#39;&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Linear search time: 12.38422070001252
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># timeit.repeat statement </span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">setup</span> <span class="o">=</span> <span class="n">SETUP_CODE</span><span class="p">,</span> 
+                      <span class="n">stmt</span> <span class="o">=</span> <span class="n">TEST_CODE</span><span class="p">,</span> 
+                      <span class="n">repeat</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> 
+                      <span class="n">number</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span> 
+
+<span class="c1"># priniting minimum exec. time </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Binary search time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">times</span><span class="p">)))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Binary search time: 6.7221921000164
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 5</strong></p>
+<p class="subheader">Category: <a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://afiajahan19.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://afiajahan19.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://afiajahan19.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/afiajahan19/">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/afia-jahan-16b611366/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Afia Jahan</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
